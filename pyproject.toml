@@ -11,10 +11,13 @@ build-backend = "hatchling.build"
 requires = ["hatchling"]
 
 [tool.pixi.project]
-channels = ["conda-forge"]
+channels = ["conda-forge", "Microsoft"]
 platforms = ["linux-64"]
 
 [tool.pixi.pypi-dependencies]
 azure_python_sdk = { path = ".", editable = true }
 
 [tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+azure-mgmt-subscription = ">=3.1.1,<4"
