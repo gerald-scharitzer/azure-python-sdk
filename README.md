@@ -6,4 +6,4 @@ Clone with `git clone https://github.com/gerald-scharitzer/azure-python-sdk.git`
 
 Enter with `cd azure-python-skd`.
 
-Run with `python main.py`
+Run with `pixi run main`

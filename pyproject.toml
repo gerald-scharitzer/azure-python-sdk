@@ -18,6 +18,8 @@ platforms = ["linux-64"]
 azure_python_sdk = { path = ".", editable = true }
 
 [tool.pixi.tasks]
+main = "python main.py"
 
 [tool.pixi.dependencies]
+azure-identity = ">=1.17.1,<2"
 azure-mgmt-subscription = ">=3.1.1,<4"

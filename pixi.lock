@@ -12,6 +12,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-2_gnu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/azure-common-1.1.28-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/azure-core-1.31.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/azure-identity-1.17.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/azure-mgmt-core-1.5.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/azure-mgmt-subscription-3.1.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/blinker-1.8.2-pyhd8ed1ab_0.conda
@@ -39,10 +40,13 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-14.2.0-h4852527_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.38.1-h0b41bf4_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.3.1-hb9d3cd8_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/msal-1.31.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/msal_extensions-1.0.0-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/msrest-0.7.1-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-he02047a_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/oauthlib-3.2.2-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.3.2-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/portalocker-2.10.1-py313h78bf25f_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pyjwt-2.9.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pysocks-1.7.1-pyha2e5f31_6.tar.bz2
@@ -131,6 +135,28 @@ packages:
   size: 102913
   timestamp: 1726204344263
 - kind: conda
+  name: azure-identity
+  version: 1.17.1
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/azure-identity-1.17.1-pyhd8ed1ab_0.conda
+  sha256: d57802f1f3b96c57d867cfb0b782c103936fb62fa9da3c456ebe17a202b045fc
+  md5: 137b53f8ac9b81798f07bdcf2248fab4
+  depends:
+  - azure-core >=1.23.0
+  - cryptography >=2.5
+  - msal >=1.24.0
+  - msal_extensions >=0.3.0
+  - python >=3.7
+  - typing-extensions >=4.0.0
+  license: MIT
+  license_family: MIT
+  purls:
+  - pkg:pypi/azure-identity?source=hash-mapping
+  size: 84218
+  timestamp: 1719036785878
+- kind: conda
   name: azure-mgmt-core
   version: 1.5.0
   build: pyhd8ed1ab_0
@@ -172,7 +198,7 @@ packages:
   name: azure-python-sdk
   version: 0.1.0a0.dev0
   path: .
-  sha256: 60fcce58e1c7eb5bad2c5176ac64f79bcd79e302f1f7c81fadd48a58f1206334
+  sha256: 0aa28f9e1d5adaa202821cdb9d5d7e613512ceb28a2c51f6c29eabc2e071ced8
   requires_python: '>=3.11'
   editable: true
 - kind: conda
@@ -612,6 +638,45 @@ packages:
   size: 60963
   timestamp: 1727963148474
 - kind: conda
+  name: msal
+  version: 1.31.0
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/msal-1.31.0-pyhd8ed1ab_0.conda
+  sha256: dcac9d2936aa21b2cc8b1985ee1fe13f2d34ebb4d6985712546526d7fc04abcb
+  md5: 29423703af5f8e9f7b5da824d83ec510
+  depends:
+  - cryptography <46,>=2.5
+  - pyjwt <3,>=1.0.0
+  - python >=3.6
+  - requests <3,>=2.0.0
+  license: MIT
+  license_family: MIT
+  purls:
+  - pkg:pypi/msal?source=hash-mapping
+  size: 90148
+  timestamp: 1725675440930
+- kind: conda
+  name: msal_extensions
+  version: 1.0.0
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/msal_extensions-1.0.0-pyhd8ed1ab_0.tar.bz2
+  sha256: 73096cb7f0939595651fb1555a201b3a31adb3dfeb833e70af2d4313015dd51f
+  md5: db0e3cc6e5e99baf237a2ab73898f553
+  depends:
+  - msal >=0.4.1,<2.0
+  - portalocker >=1.6,<3.0
+  - python >=3.6
+  license: MIT
+  license_family: MIT
+  purls:
+  - pkg:pypi/msal-extensions?source=hash-mapping
+  size: 19699
+  timestamp: 1652707856094
+- kind: conda
   name: msrest
   version: 0.7.1
   build: pyhd8ed1ab_0
@@ -686,6 +751,24 @@ packages:
   purls: []
   size: 2891789
   timestamp: 1725410790053
+- kind: conda
+  name: portalocker
+  version: 2.10.1
+  build: py313h78bf25f_1
+  build_number: 1
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/portalocker-2.10.1-py313h78bf25f_1.conda
+  sha256: 75a7341cd385b38b89b8e57a1e36a8987abad35826353d40069687468f572917
+  md5: 22ffbaa85468a1e8c150a8533c0f7803
+  depends:
+  - python >=3.13,<3.14.0a0
+  - python_abi 3.13.* *_cp313
+  license: PSF-2.0
+  license_family: PSF
+  purls:
+  - pkg:pypi/portalocker?source=hash-mapping
+  size: 45127
+  timestamp: 1728931897703
 - kind: conda
   name: pycparser
   version: '2.22'
